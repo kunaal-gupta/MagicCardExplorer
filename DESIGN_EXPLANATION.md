@@ -1,1 +1,3 @@
 # Design Decisions and Thoughts
+
+- 

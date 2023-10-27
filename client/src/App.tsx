@@ -73,6 +73,7 @@ export default function App() {
 
       }
     setCardsList(response.data)
+    console.log(1, response)
   
     }) 
   }
