@@ -4,6 +4,8 @@ The goal of this exercise is to evaluate your skills in developing a basic full-
 
 Before getting started, please read this document carefully.
 <img width="928" alt="Screenshot 2023-10-27 171451" src="https://github.com/kunaal-gupta/MagicCardExplorer/assets/87749508/7643c8a3-dbde-472b-867e-9d6e5b565dea">
+<img width="960" alt="Screenshot 2023-10-27 171342" src="https://github.com/kunaal-gupta/MagicCardExplorer/assets/87749508/43b77b8f-d268-4d54-962e-5ef0e84c3230">
+<img width="750" alt="Screenshot 2023-10-27 171640" src="https://github.com/kunaal-gupta/MagicCardExplorer/assets/87749508/20617dd7-90c7-40f2-9c83-23a56cfd4a77">
 
 
 
