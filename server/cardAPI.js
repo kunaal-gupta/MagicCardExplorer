@@ -1,9 +1,12 @@
 const { json } = require('express');
 
-function APIcall(query) {
+function APIcall(query, topic) {
     const axios = require('axios');
     const apiUrl = 'https://api.scryfall.com/cards/search';
-    const customQuery = 'is:' + query.message;
+
+    Topic = {Year: 'year', Shortcuts: 'is:'}
+    const customQuery = Topic[topic] + query
+    console.log(customQuery)
 
 
     return axios.get(apiUrl, {
@@ -47,4 +50,4 @@ function APIcall(query) {
 
 
 module.exports = { APIcall }
-// APIcall('d')
+// APIcall('>2000', 'year')
