@@ -6,7 +6,7 @@ function APIcall(query, topic) {
 
     Topic = {Year: 'year', Shortcuts: 'is:'}
     const customQuery = Topic[topic] + query
-    console.log(customQuery)
+    // console.log(topic, query, customQuery, Topic[topic])
 
 
     return axios.get(apiUrl, {
@@ -21,7 +21,7 @@ function APIcall(query, topic) {
         if (data.object === 'list') {
             const cards = data.data;
             const cardDataArray = []; // Create an array to store card data
-
+            // console.log(data)
             // Process and collect the card data as needed
             cards.forEach(card => {
                 const jsonData = {
@@ -29,8 +29,12 @@ function APIcall(query, topic) {
                     'Card Name': card.name,
                     'Set Name': card.set_name,
                     'Card Number': card.collector_number,
-                    'Rarity': card.rarity
+                    'Rarity': card.rarity,
+                    'imageUrl': card.image_uris['small']
+
                 };
+                // console.log(imageUrl);
+
                 cardDataArray.push(jsonData); // Add card data to the array
             });
 
@@ -50,4 +54,4 @@ function APIcall(query, topic) {
 
 
 module.exports = { APIcall }
-// APIcall('>2000', 'year')
+// APIcall('>2000', 'Year')

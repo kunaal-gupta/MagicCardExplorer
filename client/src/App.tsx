@@ -14,7 +14,7 @@ export default function App() {
   var [Cards, setCardsList] = useState(CardsArr)
   const [isHidden, setIsHidden] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState('');
-  const [isdisabled, setdisability] = useState(true);
+  const [disabled, setdisability] = useState(true);
 
 
 
@@ -53,7 +53,11 @@ export default function App() {
  
     const handleTopicChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
       setSelectedTopic(event.target.value);
-      setdisability(false)
+      console.log(event.target.value)
+      if (event.target.value == ""){
+        setdisability(true)} else{
+          setdisability(false)
+        }
     };
   
     return (
@@ -95,18 +99,27 @@ export default function App() {
       <ul className='cardList'>
         {Cards.map((card: { [key: string]: any }) => (
           <li className="Card" key={card.id}>
-            <div>
-              <strong>Card Name:</strong> {card['Card Name']}
+            <div style={{display:'flex', alignItems:'flex-start'}}>
+              <img src={card['imageUrl']} width={'100vw'} height={'200vh'}/>
+              <div className='CardDetails' style={{marginLeft: "2%"}}>
+                <div>
+                  <strong>Card Name:</strong> {card['Card Name']}
+                </div>
+                <div>
+                  <strong>Set Name:</strong> {card['Set Name']}
+                </div>
+                <div>
+                  <strong>Card Number:</strong> {card['Card Number']}
+                </div>
+                <div>
+                  <strong>Rarity:</strong> {card['Rarity']}
+                </div>
+
+
+              </div>
             </div>
-            <div>
-              <strong>Set Name:</strong> {card['Set Name']}
-            </div>
-            <div>
-              <strong>Card Number:</strong> {card['Card Number']}
-            </div>
-            <div>
-              <strong>Rarity:</strong> {card['Rarity']}
-            </div>
+
+
           </li>
         ))}
       </ul>
@@ -139,8 +152,9 @@ export default function App() {
 
           <div style={{display: 'flex', justifyContent: "center", alignContent: 'center'}}>
             < MagicDropdown />
-            <input className= 'inputBar' onInput={handleClick} disabled = {isdisabled} placeholder='Enter the query to search cards' type='text' />
+            <input className= 'inputBar' onInput={handleClick} disabled = {disabled} placeholder='Enter the query to search cards' type='text' />
           </div>
+          <div className='insText'>"First Select the category before querying"</div>
 
           <div className={!isHidden ? 'hidden' : 'loader'}></div>
 
