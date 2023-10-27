@@ -11,6 +11,8 @@
 
 - CategoryDropdown Function: This function renders a list of available categories on the webpage.
 
+Used Axios at client side for data exchange
+
 ## Running Client side
 ```
 cd client
@@ -39,6 +41,8 @@ rs
 - It takes in the query & fetches the list of cards based on the input query & choosen category
 
 - Controls the API call per sec by using setTimeout function in Apps.tsx
+
+Used Express.Js at Server side for data exchange
 
 
 # Note
