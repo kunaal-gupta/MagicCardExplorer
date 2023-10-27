@@ -14,10 +14,15 @@ const Cards = [
 
 export default function App() {
   const [search, setSearch] = useState("");
+  const [CardsList, setCardsList] = useState([])
 
   function APIdata() {
     const data = {message: search};
     axios.post("http://localhost:3001/hello", data)
+    .then(response => {
+      setCardsList(response.data)
+      console.log('Card', CardsList)
+    })
   }
 
   function DisplayCards() {
@@ -30,10 +35,10 @@ export default function App() {
     const inputValue = event.target.value;
     setSearch(inputValue)
     console.log("Someone is typing", inputValue)
+    APIdata()
   }
 
 
-  APIdata()
 
   return (
     <>

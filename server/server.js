@@ -5,10 +5,14 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json()); // Middleware to parse JSON data in the request body
 
-app.post('/hello', function(req, res) {
-   console.log("Received POST request");
-   console.log(req.body, req.params); // Access the JSON data sent in the request body
-   res.send('hi')
+const {APIcall} = require('./cardAPI');
+
+app.post('/hello', async function(req, res) {
+   console.log("Server: Received POST request");
+   console.log(req.body); // Access the JSON data sent in the request body
+
+   const APIdata = await APIcall(req.body)
+   res.send(APIdata)
    
 });
 
