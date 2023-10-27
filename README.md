@@ -1,12 +1,11 @@
 # Introduction
 
-Hello 👋,
-
-Thanks for taking the time to complete this brief take-home assignment. While this challenge is tailored to be completed in <ins>under 3 hours</ins>, feel free to take as long as you need up to the deadline provided.
-
 The goal of this exercise is to evaluate your skills in developing a basic full-stack application in TypeScript (React, Node, Express, 3rd-party integration). Feel free to make any assumptions, simplifications, or other changes to the problems - though please state those in your write up when you submit this assignment. Please use as many libraries as is reasonable - there is no sense in rebuilding what has been built. Feel at liberty to structure the project in a way that satisfies you.
 
 Before getting started, please read this document carefully.
+<img width="928" alt="Screenshot 2023-10-27 171451" src="https://github.com/kunaal-gupta/MagicCardExplorer/assets/87749508/7643c8a3-dbde-472b-867e-9d6e5b565dea">
+
+
 
 **Good luck 🙃**
 
