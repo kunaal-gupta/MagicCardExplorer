@@ -67,7 +67,7 @@ export default function App() {
   function APIdata(message: string) {
     const data = {message: message, Topic: selectedTopic};
     console.log(data)
-    axios.post("http://localhost:3001/hello", data)
+    axios.post("http://localhost:3001/apidata", data)
 
     .then(response => {
       if (response.status != 200){
@@ -130,7 +130,6 @@ export default function App() {
     let a = async () => {setCardsList([])}
     a()
   }
-
 
   return (
     <>

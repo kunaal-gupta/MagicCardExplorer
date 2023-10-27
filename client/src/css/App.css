@@ -36,6 +36,7 @@
   height: 5vh;
   font-size: 3.2vh;
   margin-left: 2%;
+  border-radius: 5px;
   /* Other styles for .inputBar */
 }
 
@@ -77,6 +78,8 @@
   background-color: rgb(219, 213, 213);
   font-weight: bold;
   cursor: pointer;
+  border-radius: 5px;
+
 }
 
 .insText{

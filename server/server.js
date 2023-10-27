@@ -7,7 +7,7 @@ app.use(express.json()); // Middleware to parse JSON data in the request body
 
 const {APIcall} = require('./cardAPI');
 
-app.post('/hello', async function(req, res) {
+app.post('/apidata', async function(req, res) {
 //    console.log("Server: Received POST request");
 //    console.log('Request from client', req.body, req.body.message, req.body.Topic); // Access the JSON data sent in the request body
     
