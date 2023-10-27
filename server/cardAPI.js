@@ -69,4 +69,3 @@ function APIcall(query, topic) {
 
 
 module.exports = { APIcall }
-// APIcall('>2000', 'Year')

@@ -17,7 +17,7 @@ export default function App() {
 
 
 
-  const MagicDropdown = () => {
+  const CategoryDropdown = () => {
   
     const topics = [
       'Colors',
@@ -32,7 +32,7 @@ export default function App() {
       'Shortcuts',
       'ExactNames',
       'Toughness',
-      'Loyalty.'
+      'Loyalty'
 
     ];
 
@@ -85,6 +85,7 @@ export default function App() {
           <li className="Card" key={card.id}>
             <div style={{display:'flex', alignItems:'flex-start'}}>
               <img src={card['imageUrl']} width={'100vw'} height={'200vh'}/>
+
               <div className='CardDetails' style={{marginLeft: "2%"}}>
                 <div>
                   <strong>Card Name:</strong> {card['Card Name']}
@@ -133,7 +134,7 @@ export default function App() {
         <div className="App">
 
           <div style={{display: 'flex', justifyContent: "center", alignContent: 'center'}}>
-            < MagicDropdown />
+            < CategoryDropdown />
             <input className= 'inputBar' onInput={handleClick} disabled = {disabled} placeholder='Enter the query to search cards' type='text' />
           </div>
 
