@@ -8,7 +8,6 @@ const CardsArr = [
   {id: "0", cImage: "0", setName:"0", number: "0", rarity:"0"},
   ]
 
-
 export default function App() {
   var [search, setSearch] = useState("");
   var [Cards, setCardsList] = useState(CardsArr)
@@ -62,7 +61,6 @@ export default function App() {
     );
   };
   
-
       
   function APIdata(message: string) {
     const data = {message: message, Topic: selectedTopic};
@@ -75,8 +73,6 @@ export default function App() {
 
       }
     setCardsList(response.data)
-    console.log('f', Cards)
-    console.log(response.data)
   
     }) 
   }
@@ -120,7 +116,6 @@ export default function App() {
 
     setTimeout(() => {
       setIsHidden(isHidden);
-      console.log("Someone is typing", inputValue);
       APIdata(inputValue);
 
     }, 1000)
@@ -140,8 +135,8 @@ export default function App() {
             < MagicDropdown />
             <input className= 'inputBar' onInput={handleClick} disabled = {disabled} placeholder='Enter the query to search cards' type='text' />
           </div>
-          <div className='insText'>"First Select the category and then enter query (without) keyword"</div>
 
+          <div className='insText'>"First Select the category and then enter query (without) keyword"</div>
           <div className={!isHidden ? 'hidden' : 'loader'}></div>
 
         </div>
