@@ -5,49 +5,77 @@ import { useState } from 'react';
 
 
 const CardsArr = [
-  {id: "", cImage: "", setName:"", number: "", rarity:""},
+  {id: "0", cImage: "0", setName:"0", number: "0", rarity:"0"},
   ]
 
 
 export default function App() {
-  const [search, setSearch] = useState("");
-  const [Cards, setCardsList] = useState(CardsArr)
+  var [search, setSearch] = useState("");
+  var [Cards, setCardsList] = useState(CardsArr)
+  var [disabled, setDisable] = useState(false)
+  var [focus, setFocus] = useState(true)
     
   function APIdata(message: string) {
     const data = {message: message};
-
+    console.log(data)
     axios.post("http://localhost:3001/hello", data)
+
     .then(response => {
-      if (response.data === -1){
+      if (response.status != 200){
         alert('no result')
+
       }
-      setCardsList(response.data)
-      
-      console.log('Card', Cards)
-      console.log(1, response.data)
-    })
+    setCardsList(response.data)
+    console.log('f', Cards)
+    console.log(response.data)
+    
+    }) 
   }
 
   function DisplayCards() {
-    const cardArr = Cards.map(card => 
-      <li className="Card" key={card.id}> {card.cImage} {card.number} </li>)
-
-    return <ul className='cardList'> {cardArr} </ul>
+    return (
+      <ul className='cardList'>
+        {Cards.map((card: { [key: string]: any }) => (
+          <li className="Card" key={card.id}>
+            <div>
+              <strong>Card Name:</strong> {card['Card Name']}
+            </div>
+            <div>
+              <strong>Set Name:</strong> {card['Set Name']}
+            </div>
+            <div>
+              <strong>Card Number:</strong> {card['Card Number']}
+            </div>
+            <div>
+              <strong>Rarity:</strong> {card['Rarity']}
+            </div>
+          </li>
+        ))}
+      </ul>
+    );
   }
-
+  
+  
   function handleClick(event: React.ChangeEvent<HTMLInputElement>) {
     const inputValue = event.target.value;
     setSearch(inputValue);
-    console.log("Someone is typing", inputValue, search);
-    APIdata(inputValue);
-  }
 
+    setTimeout(() => {
+    console.log("Someone is typing", inputValue);
+     APIdata(inputValue);
+     setFocus(true)
+    }, 1000)
+  
+    let a = async () => {setCardsList([])}
+    a()
+  }
 
 
   return (
     <>
     <div className="App">
-      <input className= 'inputBar' onInput={handleClick} placeholder='Enter your text here' type='text' />
+      <input className= 'inputBar' onInput={handleClick} placeholder='Enter your text here' 
+      type='text' />
 
     </div>
     <DisplayCards />

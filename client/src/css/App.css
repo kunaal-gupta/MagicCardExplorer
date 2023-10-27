@@ -22,8 +22,10 @@
 .Card{
   align-items: stretch;
   margin-left: 1%;
+  display: inline-block;
+  margin-bottom: 1%;
   border: 2px solid black;
   justify-content: center;
   padding: 2% 3%;
-  width: 10%;
+  width: 40%;
 }
