@@ -1,11 +1,11 @@
 {
   "name": "take-home-full-stack",
   "version": "1.0.0",
-  "main": "./src/index.ts",
+  "main": "server/server.js",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon src/index.ts",
+    "start": "nodemon server/server.js" ,
+    "server": "nodemon server/server.js",
     "client": "cd client && npm start"
   },
   "dependencies": {
