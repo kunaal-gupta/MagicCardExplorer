@@ -21,33 +21,20 @@ export default function App() {
   const MagicDropdown = () => {
   
     const topics = [
-      'Colors and Color Identity',
-      'Card Types',
-      'Card Text',
-      'Mana Costs',
-      'Power/Toughness/Loyalty',
-      'Multi-faced Cards',
-      'Spells/Permanents/Effects',
-      'Extra and Funny Cards',
-      'Tagger Tags',
-      'Rarity',
-      'Sets/Blocks',
+      'Colors',
+      'CardTypes',
+      'CardText',
+      'ManaCosts',
+      'Power',
+      'Multi_Faced_Cards',
+      'Spells_Permanents_Effects',
       'Cubes',
-      'Format Legality',
-      'USD/EUR/TIX Prices',
-      'Artist/Flavor/Watermark',
-      'Border/Frame/Foil/Resolution',
-      'Games, Promos, & Spotlights',
       'Year',
-      'Reprints',
-      'Languages',
       'Shortcuts',
-      'Negating Conditions',
-      'Regular Expressions',
-      'Exact Names',
-      'Using OR',
-      'Nesting Conditions',
-      'Display Keywords'
+      'ExactNames',
+      'Toughness',
+      'Loyalty.'
+
     ];
 
  
@@ -104,7 +91,7 @@ export default function App() {
               <div className='CardDetails' style={{marginLeft: "2%"}}>
                 <div>
                   <strong>Card Name:</strong> {card['Card Name']}
-                </div>
+                </div><br></br>
                 <div>
                   <strong>Set Name:</strong> {card['Set Name']}
                 </div>
@@ -154,7 +141,7 @@ export default function App() {
             < MagicDropdown />
             <input className= 'inputBar' onInput={handleClick} disabled = {disabled} placeholder='Enter the query to search cards' type='text' />
           </div>
-          <div className='insText'>"First Select the category before querying"</div>
+          <div className='insText'>"First Select the category and then enter query (without) keyword"</div>
 
           <div className={!isHidden ? 'hidden' : 'loader'}></div>
 

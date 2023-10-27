@@ -4,9 +4,25 @@ function APIcall(query, topic) {
     const axios = require('axios');
     const apiUrl = 'https://api.scryfall.com/cards/search';
 
-    Topic = {Year: 'year', Shortcuts: 'is:'}
+    Topic = {
+        Year: 'year', 
+        Shortcuts: 'is:', 
+        Multi_Faced_Cards: 'is:', 
+        Spells_Permanents_Effects: 'is:',
+        Cubes:'cube:',
+        ExactNames: '!',
+        CardTypes: "t:",
+        CardText: 'o:',
+        ManaCosts: 'm:',
+        Power: 'pow',
+        Toughness: 'tow',
+        Loyalty: 'loy',
+        Colors: "c:"
+    
+    }
+
     const customQuery = Topic[topic] + query
-    // console.log(topic, query, customQuery, Topic[topic])
+    console.log(customQuery)
 
 
     return axios.get(apiUrl, {
@@ -47,7 +63,6 @@ function APIcall(query, topic) {
         }
     })
     .catch(error => {
-        console.error('An error occurred:');
         return -1; // Handle errors and return an appropriate value
     });
 }
