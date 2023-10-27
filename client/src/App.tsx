@@ -12,8 +12,8 @@ const CardsArr = [
 export default function App() {
   var [search, setSearch] = useState("");
   var [Cards, setCardsList] = useState(CardsArr)
-  var [disabled, setDisable] = useState(false)
-  var [focus, setFocus] = useState(true)
+  const [isHidden, setIsHidden] = useState(false);
+
     
   function APIdata(message: string) {
     const data = {message: message};
@@ -28,7 +28,7 @@ export default function App() {
     setCardsList(response.data)
     console.log('f', Cards)
     console.log(response.data)
-    
+  
     }) 
   }
 
@@ -61,10 +61,13 @@ export default function App() {
     setSearch(inputValue);
 
     setTimeout(() => {
-    console.log("Someone is typing", inputValue);
-     APIdata(inputValue);
-     setFocus(true)
+      setIsHidden(isHidden);
+      console.log("Someone is typing", inputValue);
+      APIdata(inputValue);
+
     }, 1000)
+    setIsHidden(!isHidden);
+
   
     let a = async () => {setCardsList([])}
     a()
@@ -73,13 +76,15 @@ export default function App() {
 
   return (
     <>
-    <div className="App">
-      <input className= 'inputBar' onInput={handleClick} placeholder='Enter your text here' 
-      type='text' />
+      <div>
+        <div className="App">
+          <input className= 'inputBar' onInput={handleClick} placeholder='Enter your text here' type='text' />
+          <div className={!isHidden ? 'hidden' : 'loader'}></div>
 
-    </div>
-    <DisplayCards />
+        </div>
 
-  </>
+        <DisplayCards />
+      </div>
+    </>
   );
 }

@@ -1,21 +1,6 @@
-.inputBar{
-  width: 80vw;
-  height: 5vh;
-  font-size: 4vh;
-
-}
-
-.App{
-  display: flex;
-  justify-content: center; 
-  margin-top: 2vh;
-}
-
 .cardList{
   margin: 2% 4%;
   height: 100%;
-  display: flex;
-  flex-wrap: wrap;
 
 }
 
@@ -29,3 +14,48 @@
   padding: 2% 3%;
   width: 40%;
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  margin-top: 2vh;
+}
+
+.inputBar {
+  width: 80vw;
+  height: 5vh;
+  font-size: 4vh;
+  /* Other styles for .inputBar */
+}
+
+.loader {
+  background-color: red;
+  background-color: rgba(248, 247, 246, 0.247);
+  border-top: rgb(225, 218, 209) 0.5em solid;
+  border-bottom: rgb(225, 218, 209) 0.5em solid;
+  border-left: rgb(225, 218, 209) 0.5em solid;
+  border-right: rgb(22, 105, 220) 0.5em solid;
+  border-radius: 50%;
+  animation: loading 0.5s linear infinite;
+  height: 4.9em;
+  width: 4.9em;
+  margin-top: 20%;
+}
+
+  
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+      }
+    100% {
+      transform: rotate(360deg);
+
+    }
+
+}
+
