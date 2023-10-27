@@ -5,11 +5,7 @@ app.use(cors());
 
 
 app.get('/hello', function(req, res) {
-   res.send("Hello World!");
+   res.send("Welcome to the server page!");
 });
 
-app.post('/hello', function(req, res) {
-   res.send("You just called the post method at '/hello'!\n");
-});
-
-app.listen(3002);
+app.listen(3001);
