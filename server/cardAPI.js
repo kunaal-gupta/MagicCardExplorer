@@ -3,7 +3,8 @@ const { json } = require('express');
 function APIcall(query) {
     const axios = require('axios');
     const apiUrl = 'https://api.scryfall.com/cards/search';
-    const customQuery = "is:dual";
+    const customQuery = 'is:' + query.message;
+
 
     return axios.get(apiUrl, {
         params: {
@@ -21,6 +22,7 @@ function APIcall(query) {
             // Process and collect the card data as needed
             cards.forEach(card => {
                 const jsonData = {
+                    'id': card.id,
                     'Card Name': card.name,
                     'Set Name': card.set_name,
                     'Card Number': card.collector_number,
@@ -29,17 +31,20 @@ function APIcall(query) {
                 cardDataArray.push(jsonData); // Add card data to the array
             });
 
+            console.log(cardDataArray)
+
             return cardDataArray; // Return the array of card data
         } else {
             console.log('No matching cards found.');
-            return null; // Return null or an empty array if no cards are found
+            return -1; // Return null or an empty array if no cards are found
         }
     })
     .catch(error => {
-        console.error('An error occurred:', error);
-        return null; // Handle errors and return an appropriate value
+        console.error('An error occurred:');
+        return -1; // Handle errors and return an appropriate value
     });
 }
 
 
 module.exports = { APIcall }
+// APIcall('d')

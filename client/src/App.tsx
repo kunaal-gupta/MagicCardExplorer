@@ -1,41 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './css/App.css';
 import axios from 'axios';
 import { useState } from 'react';
 
 
-const Cards = [
-  {id: 0, cImage: "ERW", setName:"ERE", number: "RE", rarity:"REER"},
-  {id: 1, cImage: "FDS", setName:"RE", number: "RE", rarity:"RW"},
-  {id: 2, cImage: "DFS", setName:"ERE", number: "RE", rarity:"ERWR3"}
-
-]
+const CardsArr = [
+  {id: "", cImage: "", setName:"", number: "", rarity:""},
+  ]
 
 
 export default function App() {
   const [search, setSearch] = useState("");
-  const [CardsList, setCardsList] = useState([])
+  const [Cards, setCardsList] = useState(CardsArr)
+    
+  function APIdata(message: string) {
+    const data = {message: message};
 
-  function APIdata() {
-    const data = {message: search};
     axios.post("http://localhost:3001/hello", data)
     .then(response => {
+      if (response.data === -1){
+        alert('no result')
+      }
       setCardsList(response.data)
-      console.log('Card', CardsList)
+      
+      console.log('Card', Cards)
+      console.log(1, response.data)
     })
   }
 
   function DisplayCards() {
     const cardArr = Cards.map(card => 
       <li className="Card" key={card.id}> {card.cImage} {card.number} </li>)
+
     return <ul className='cardList'> {cardArr} </ul>
   }
 
   function handleClick(event: React.ChangeEvent<HTMLInputElement>) {
     const inputValue = event.target.value;
-    setSearch(inputValue)
-    console.log("Someone is typing", inputValue)
-    APIdata()
+    setSearch(inputValue);
+    console.log("Someone is typing", inputValue, search);
+    APIdata(inputValue);
   }
 
 
@@ -51,5 +55,3 @@ export default function App() {
   </>
   );
 }
-
-

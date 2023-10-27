@@ -9,11 +9,13 @@ const {APIcall} = require('./cardAPI');
 
 app.post('/hello', async function(req, res) {
    console.log("Server: Received POST request");
-   console.log(req.body); // Access the JSON data sent in the request body
-
+   console.log('Request from client', req.body); // Access the JSON data sent in the request body
+    
    const APIdata = await APIcall(req.body)
-   res.send(APIdata)
+   if (APIdata != -1) {
+    res.send(APIdata)}
    
+
 });
 
 app.listen(3001, () => {
