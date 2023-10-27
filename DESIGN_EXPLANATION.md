@@ -1,6 +1,8 @@
 # Design Decisions and Thoughts
 
 
+<img width="928" alt="Dashboard" src="https://github.com/kunaal-gupta/MagicCardExplorer/assets/87749508/bef213a7-808b-4d20-b5e0-8a2d4b2ade22">
+
 # Client Side Folder:
 
 -  HandleClick Function: This function is responsible for managing user input edits in the search bar.
